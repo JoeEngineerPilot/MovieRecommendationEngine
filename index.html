@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bill and Joe's Shows</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script src="movie-details.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="screen-header">
+      <h1>Bill and Joe's App</h1>
+    </header>
+    <section class="discovery" aria-label="Show deck">
+      <div class="deck">
+        <div class="deck-row">
+          <div id="deck-stage" class="deck-stage"></div>
+          <div id="remaining-meter" class="remaining-meter" role="meter" aria-label="Movies remaining to swipe" aria-valuemin="0">
+            <div id="remaining-stripes" class="remaining-stripes" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="deck-actions" aria-label="Movie reactions">
+          <button id="pass" class="reaction pass" aria-keyshortcuts="ArrowLeft">
+            <span aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="9" cy="10" r="1" fill="currentColor"/>
+              <circle cx="15" cy="10" r="1" fill="currentColor"/>
+              <path d="M9 15h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg></span>
+            Meh
+          </button>
+          <button id="watchlist" class="reaction watchlist" aria-haspopup="dialog"><span aria-hidden="true">＋</span>Watch List</button>
+          <button id="like" class="reaction like" aria-keyshortcuts="ArrowRight"><span aria-hidden="true">♥</span>Liked</button>
+        </div>
+        <div id="announcement" class="sr-only" role="status"></div>
+      </div>
+    </section>
+  </main>
+  <dialog id="watchlist-dialog" aria-labelledby="watchlist-title">
+    <div class="dialog-header">
+      <h2 id="watchlist-title">Watch List</h2>
+      <form method="dialog"><button class="close" aria-label="Close watch list" autofocus>×</button></form>
+    </div>
+    <div id="watchlist-content"></div>
+  </dialog>
+  <dialog id="movie-dialog" aria-label="Movie details" aria-describedby="movie-description">
+    <p id="movie-description" tabindex="-1" autofocus></p>
+    <dl class="movie-facts">
+      <dt>Release year</dt><dd id="movie-year"></dd>
+      <dt>IMDb</dt><dd id="movie-imdb"></dd>
+      <dt>Rotten Tomatoes</dt><dd><span id="movie-rt"></span> <small>Tomatometer</small></dd>
+      <dt>Director</dt><dd id="movie-director"></dd>
+      <dt>Starring</dt><dd id="movie-cast"></dd>
+    </dl>
+  </dialog>
+</body>
+</html>
